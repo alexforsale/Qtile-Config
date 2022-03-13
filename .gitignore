@@ -3,4 +3,7 @@
 
 # Ignores python cache
 
-__pycache__/ 
+__pycache__/
+
+# rope project
+.ropeproject/
