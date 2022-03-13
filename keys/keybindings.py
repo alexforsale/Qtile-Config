@@ -5,16 +5,16 @@ from libqtile.lazy import lazy
 # Import the function that move the window to the next and prev group
 # from functions import Functions, PWA
 
-from config_keybindings import SWAP_KEY, SWAP_FLIP, GROW, SHRINK
-from config.keybindings import SPAWN_KEYS, SPAWN_CMD_KEYS, MOVEMENT_KEY
-from config.keybindings import SWAP_LEFT, SWAP_RIGHT, SWAP_UP, SWAP_DOWN
-from config.keybinding import LEFT, RIGHT, DOWN, UP, TOOGLE_LAYOUT
-from config.keybinding import NORMALIZE, MAXIMIZE, SHUTDOWN, ALTGR
-from config.keybinding import KILL_ALL, KILL_ALL_MINUS_CURRENT
-from config.keybinding import SHUTDOWN_MODIFIER, RESTART, KILL_KEY
-from config.keybinding import KILL_CURRENT, SWAP_GROUP_KEY, FLOATING_KEY
-from config.keybinding import TOOGLE_FLOATING, TOOGLE_FULL, MOD
-from config.keybinding import PREV_GROUP, NEXT_GROUP, GROUPS_KEY
+from keys.default import SWAP_KEY, SWAP_FLIP, GROW, SHRINK, MOVEMENT_KEY
+from config_keybindings import SPAWN_KEYS, SPAWN_CMD_KEYS
+from keys.default import SWAP_LEFT, SWAP_RIGHT, SWAP_UP, SWAP_DOWN
+from keys.default import LEFT, RIGHT, DOWN, UP, TOOGLE_LAYOUT, MAXIMIZE
+from config_keybindings import SHUTDOWN, ALTGR, SHUTDOWN_MODIFIER
+from keys.default import KILL_ALL, KILL_ALL_MINUS_CURRENT
+from keys.default import SHUTDOWN_MODIFIER, RESTART, KILL_KEY
+from keys.default import KILL_CURRENT, SWAP_GROUP_KEY, FLOATING_KEY
+from keys.default import TOOGLE_FLOATING, TOOGLE_FULL, MOD
+from keys.default import PREV_GROUP, NEXT_GROUP, GROUPS_KEY, NORMALIZE
 from functions import Functions
 
 
