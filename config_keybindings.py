@@ -82,7 +82,9 @@ APPS = [
     ([ALTGR], "space", "play-pause"),
 
     # Run "rofi-theme-selector" in terminal to select a theme
-    ([MOD], "space", 'rofi -modi "drun,power-menu:rofi-power-menu,run,window,ssh" -show drun -show-icons'),
+    ([MOD], "space",
+     'rofi -modi "drun,power-menu:rofi-power-menu,run,window,ssh" \
+-show drun -show-icons'),
 
     # Screenshots
     ([],         "Print", "xfce4-screenshooter"),
@@ -113,5 +115,6 @@ SPAWN_KEYS = HARDWARE_KEYS + APPS + CUSTOM_SPAWN_KEYS
 
 SPAWN_CMD_KEYS = [
     # Takes full screenshot and creates a file on the screenshot folder
-    ([SHIFT],    "Print", f"xfce4-screenshooter -f -s {HOME}/Pictures/Screenshots/"),
+    ([SHIFT],    "Print",
+     f"xfce4-screenshooter -f -s {HOME}/Pictures/Screenshots/"),
 ]

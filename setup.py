@@ -18,7 +18,8 @@ def print_program_welcome():
 
     sep = "||"
 
-    welcome = "SETUP SCRIPT OF DANIEL'S QTILE CONFIG".center(len(row) - len(sep) * 2)
+    welcome = "SETUP SCRIPT OF DANIEL'S QTILE CONFIG".center(
+        len(row) - len(sep) * 2)
 
     welcome = sep + welcome + sep
 
@@ -32,7 +33,8 @@ def print_program_welcome():
 
     print(row + "\n")
 
-    print(f"Hi there {getuser()}, you are about to setup Qtile".center(len(row)))
+    print(f"Hi there {getuser()}, you are about to setup Qtile".center(
+        len(row)))
 
     print("\n" + row)
 
@@ -153,7 +155,8 @@ def get_dependencies(software_path="software.txt"):
     """
 
     if not os.path.exists(software_path):
-        print(f"The file {software_path} wasn't found. Please clone again or provide one")
+        print(f"The file {software_path} wasn't found. \
+Please clone again or provide one")
 
         if get_response("Continue without dependencies warnings? [yes/no]"):
             print("Dependencies won't be shown")
@@ -187,7 +190,8 @@ def check_dependencies(dependencies=None):
 
         not_installed.append(program)
 
-    first_row = "The following software is not installed, some scripts may not work\n"
+    first_row = "The following software is not installed, \
+some scripts may not work\n"
 
     if not_installed:
         return first_row + "\n".join(not_installed)
@@ -205,7 +209,8 @@ def main():
     if not check_local_folder_exists():
         print("\n.local/bin folder doesn't exists\n")
 
-        response = get_response(message="Do you want to create that directory [yes, no] >> ")
+        response = get_response(
+            message="Do you want to create that directory [yes, no] >> ")
 
         if not response:
             print("Setup can't continue if .local/bin doesn't exists")

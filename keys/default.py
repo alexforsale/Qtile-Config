@@ -19,7 +19,7 @@ SWAP_KEY = SHIFT
 FLOATING_KEY = SHIFT
 
 
-############   BINDINGS FOR MONADTALL   ##############
+# BINDINGS FOR MONADTALL
 # Move between windows
 LEFT = "h"
 RIGHT = "l"
@@ -32,9 +32,9 @@ SWAP_RIGHT = "l"
 SWAP_DOWN = "j"
 SWAP_UP = "k"
 
-SWAP_FLIP = "space" # Flip the layout
+SWAP_FLIP = "space"  # Flip the layout
 
-###########         LAYOUTS               ###############
+# LAYOUTS
 # Change windows lenght
 GROW = "i"
 SHRINK = "m"

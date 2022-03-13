@@ -4,8 +4,7 @@ from libqtile.command import lazy
 
 class Functions:
 
-    ##### MOVE WINDOW IN GROUPS #####
-
+    # MOVE WINDOW IN GROUPS
     @staticmethod
     def window_to_prev_group():
         @lazy.function
@@ -30,8 +29,7 @@ class Functions:
 
         return __inner
 
-    ##### KILL ALL WINDOWS #####
-
+    # KILL ALL WINDOWS
     @staticmethod
     def kill_all_windows():
         @lazy.function
@@ -62,11 +60,13 @@ class PWA:
 
     @staticmethod
     def music():
-        return "brave --profile-directory=Default --app=https://music.youtube.com/"
+        return "brave --profile-directory=Default \
+--app=https://music.youtube.com/"
 
     @staticmethod
     def spotify():
-        return "brave --profile-directory=Default --app=https://open.spotify.com/"
+        return "brave --profile-directory=Default \
+--app=https://open.spotify.com/"
 
     @staticmethod
     def youtube():
@@ -74,7 +74,8 @@ class PWA:
 
     @staticmethod
     def calendar():
-        return "brave --profile-directory=Default --app=https://calendar.google.com/calendar/"
+        return "brave --profile-directory=Default \
+--app=https://calendar.google.com/calendar/"
 
     @staticmethod
     def habitica():

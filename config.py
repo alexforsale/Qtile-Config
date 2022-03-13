@@ -1,5 +1,5 @@
 ###############################################
-### QTILE CONFIGURATION FILE OF DANIEL DIAZ ###
+# QTILE CONFIGURATION FILE OF DANIEL DIAZ #
 #
 #  ____   ____
 # |  _ \ |  _ \   Copyright (c) 2020 Daniel Diaz
@@ -9,7 +9,7 @@
 #
 
 
-####### IMPORTS #########
+# IMPORTS
 import os
 import subprocess
 
@@ -20,7 +20,7 @@ from libqtile import hook, layout
 from libqtile.config import Group, Match
 
 # Local Files
-from keys.keybindings import Mouse,Keybindings
+from keys.keybindings import Mouse, Keybindings
 
 from widgets import MyWidgets
 from layouts import Layouts
@@ -28,7 +28,7 @@ from groups import CreateGroups
 from icons import group_icons
 
 
-###### MAIN ######
+# MAIN
 if __name__ in ["config", "__main__"]:
     # Initializes objects
 
@@ -50,7 +50,7 @@ if __name__ in ["config", "__main__"]:
     # Append group keys for groups
     keys += obj_keys.init_keys_groups(group_icons)
 
-    ### DISPLAYS WIDGETS IN THE SCREEN ####
+    # DISPLAYS WIDGETS IN THE SCREEN
 
     screens = obj_widgets.init_screen()
     main_widgets_list = obj_widgets.init_widgets_list()
@@ -101,5 +101,6 @@ def start_once():
 
 @hook.subscribe.client_new
 def dialogs(window):
-    if(window.window.get_wm_type() == 'dialog' or window.window.get_wm_transient_for()):
+    if(window.window.get_wm_type() == 'dialog' or
+       window.window.get_wm_transient_for()):
         window.floating = True

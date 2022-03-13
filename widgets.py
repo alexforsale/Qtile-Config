@@ -51,7 +51,8 @@ class MyWidgets:
             widget.Image(
                 filename="~/.config/qtile/icons/terminal-iconx14.png",
                 mouse_callbacks={
-                    'Button1': lambda qtile: qtile.cmd_spawn('dmenu_run -p "Run: "')}
+                    'Button1':
+                    lambda qtile: qtile.cmd_spawn('dmenu_run -p "Run: "')}
             ),
             widget.Sep(
                 linewidth=0,
@@ -210,7 +211,8 @@ class MyWidgets:
         '''
         Init the widgets in the screen
         '''
-        return [Screen(top=bar.Bar(widgets=self.init_widgets_screen(), opacity=1.0, size=20)),
+        return [Screen(top=bar.Bar(widgets=self.init_widgets_screen(),
+                                   opacity=1.0, size=20)),
                 Screen(top=bar.Bar(
                     widgets=self.init_widgets_screen2(), opacity=1.0, size=20))
                 ]

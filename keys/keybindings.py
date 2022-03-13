@@ -17,7 +17,7 @@ class Keybindings:
     cmd_keys = SPAWN_CMD_KEYS
 
     def create_layout_keys(self):
-        ############   BINDINGS FOR MONADTALL   ##############
+        # BINDINGS FOR MONADTALL
         modifier = [MOVEMENT_KEY]
 
         layout_left = Key(modifier, LEFT, lazy.layout.left())
@@ -30,7 +30,8 @@ class Keybindings:
 
         toogle_layout = Key(modifier, TOOGLE_LAYOUT, lazy.next_layout())
 
-        self.keys += [layout_left, layout_right, layout_down, layout_up, toogle_layout]
+        self.keys += [layout_left, layout_right, layout_down, layout_up,
+                      toogle_layout]
 
     def create_swap_keys(self):
         modifier = [MOVEMENT_KEY, SWAP_KEY]
@@ -66,11 +67,11 @@ class Keybindings:
         modifier = [MOVEMENT_KEY, ALTGR]
 
         all_minus_current = Key(modifier, KILL_ALL_MINUS_CURRENT,
-                            Functions.kill_all_windows_minus_current())
+                                Functions.kill_all_windows_minus_current())
         all_ = Key(modifier, KILL_ALL,
-                            Functions.kill_all_windows())
+                   Functions.kill_all_windows())
         current = Key([KILL_KEY], KILL_CURRENT,
-                                lazy.window.kill())
+                      lazy.window.kill())
 
         self.keys += [all_minus_current, all_, current]
 
@@ -78,7 +79,9 @@ class Keybindings:
 
         modifier = [MOVEMENT_KEY, FLOATING_KEY]
 
-        floating = Key(modifier, TOOGLE_FLOATING, lazy.window.toggle_floating())
+        floating = Key(modifier,
+                       TOOGLE_FLOATING,
+                       lazy.window.toggle_floating())
         full = Key(modifier, TOOGLE_FULL, lazy.window.toggle_fullscreen())
 
         self.keys += [floating, full]
@@ -91,13 +94,21 @@ class Keybindings:
         move_next = Key(modifier, NEXT_GROUP, lazy.screen.next_group())
         move_prev = Key(modifier, PREV_GROUP, lazy.screen.prev_group())
 
-        swap_next = Key(swap_modifier, NEXT_GROUP, Functions.window_to_next_group())
-        swap_prev = Key(swap_modifier, PREV_GROUP, Functions.window_to_prev_group())
+        swap_next = Key(swap_modifier, NEXT_GROUP,
+                        Functions.window_to_next_group())
+        swap_prev = Key(swap_modifier,
+                        PREV_GROUP,
+                        Functions.window_to_prev_group())
 
         move_next_screen = Key(screen_modifier, NEXT_GROUP, lazy.next_screen())
         move_prev_screen = Key(screen_modifier, PREV_GROUP, lazy.next_screen())
 
-        self.keys += [move_next, move_prev, swap_next, swap_prev, move_next_screen, move_prev_screen]
+        self.keys += [move_next,
+                      move_prev,
+                      swap_next,
+                      swap_prev,
+                      move_next_screen,
+                      move_prev_screen]
 
     def create_spawn_keys(self):
 
@@ -127,8 +138,11 @@ class Keybindings:
         for icon in group_names:
             index = (icon[0]).lower()
 
-            group_keys += [Key([MOVEMENT_KEY, GROUPS_KEY], index, lazy.group[icon].toscreen()), Key(
-                [MOVEMENT_KEY, SWAP_GROUP_KEY], index, lazy.window.togroup(icon, switch_group=True))]
+            group_keys += [Key(
+                [MOVEMENT_KEY, GROUPS_KEY],
+                index, lazy.group[icon].toscreen()), Key(
+                [MOVEMENT_KEY, SWAP_GROUP_KEY],
+                    index, lazy.window.togroup(icon, switch_group=True))]
 
         return group_keys
 
