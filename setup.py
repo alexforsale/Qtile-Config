@@ -14,7 +14,6 @@ INSTALL_PATH = ".local/bin"
 
 
 def print_program_welcome():
-    
     row = "=" * 55
 
     sep = "||"
@@ -22,36 +21,35 @@ def print_program_welcome():
     welcome = "SETUP SCRIPT OF DANIEL'S QTILE CONFIG".center(len(row) - len(sep) * 2)
 
     welcome = sep + welcome + sep
-     
-     
+
     print(row)
 
     print("")
 
-
     print(welcome)
-    
+
     print("")
-    
+
     print(row + "\n")
 
     print(f"Hi there {getuser()}, you are about to setup Qtile".center(len(row)))
-    
+
     print("\n" + row)
 
 
 def print_current_dir():
     print(f"Currently you are in {os.getcwd()} directory")
 
+
 def get_correct_os():
     """
     Returns the Os name:
-    
+
     get_os -> bool
-    
+
     Linux: linux
     Mac: darwin
-    Windows: windows 
+    Windows: windows
     """
     os = platform.system().lower()
 
@@ -66,11 +64,13 @@ def get_home_path():
     """
     return os.path.expanduser("~")
 
+
 def get_local_bin(home):
     """
     Returns the local bin path of the User
     """
     return f"{home}/.local/bin"
+
 
 def check_local_folder_exists():
     """
@@ -98,47 +98,47 @@ def create_local_install_folder(local_bin):
     else:
         print(f"Successfully created the directory {local_bin}")
 
+
 def get_response(message="yes/no"):
     """
     returns -> bool
     """
     while True:
         response = input(message).lower()
-     
+
         if response == "yes":
-            return True    
+            return True
         elif response == "no":
             return False
         else:
             print("\nSorry your response must be yes or no\n")
             continue
-        
+
 
 LOCAL_BIN = get_local_bin(get_home_path())
 
+
 def link_scripts(path):
-    
-    path = os.path.abspath(path) 
+
+    path = os.path.abspath(path)
     if not os.path.exists(path):
         raise OSError("Sorry that path doesn't exist")
-
 
     os.chdir(path)
 
     i = 0
 
-
     for file_ in os.listdir(path):
         file_path = os.path.abspath(file_)
-        
-        file_name = file_.split(".")[0] 
-        
+
+        file_name = file_.split(".")[0]
+
         link_path = LOCAL_BIN + f"/{file_name}"
 
         if os.path.exists(link_path):
-            print("You have already in path", file_name)        
+            print("You have already in path", file_name)
             continue
-        
+
         os.link(file_path, link_path)
 
         i += 1
@@ -148,13 +148,13 @@ def link_scripts(path):
 
 def get_dependencies(software_path="software.txt"):
     """software_path -> path of software.txt
-    
+
     returns list of dependencies
     """
-    
-    if not os.path.exists(software_path): 
+
+    if not os.path.exists(software_path):
         print(f"The file {software_path} wasn't found. Please clone again or provide one")
-        
+
         if get_response("Continue without dependencies warnings? [yes/no]"):
             print("Dependencies won't be shown")
             return None
@@ -162,22 +162,23 @@ def get_dependencies(software_path="software.txt"):
             print("Clone again or provide a file.")
             exit()
 
-    software = []    
-    
+    software = []
+
     with open(software_path, "r") as file_:
         for line in file_:
             software.append(line.strip())
-   
-    return software 
+
+        return software
+
 
 def check_dependencies(dependencies=None):
     """dependencies ->  list
-    
+
     returns -> str programs that aren't installed
     """
     if dependencies is None:
         return ""
-    
+
     not_installed = []
 
     for program in dependencies:
@@ -185,25 +186,26 @@ def check_dependencies(dependencies=None):
             continue
 
         not_installed.append(program)
-    
-    first_row = "The following software is not installed, some scripts may not work\n" 
 
-    if not_installed: 
+    first_row = "The following software is not installed, some scripts may not work\n"
+
+    if not_installed:
         return first_row + "\n".join(not_installed)
     else:
         return ""
 
+
 def main():
-    
+
     print_program_welcome()
-    
+
     if not get_correct_os():
-        raise OSError("Sorry Qtile is only supported in Linux") 
-    
+        raise OSError("Sorry Qtile is only supported in Linux")
+
     if not check_local_folder_exists():
         print("\n.local/bin folder doesn't exists\n")
 
-        response = get_response(message="Do you want to create that directory [yes, no] >> ") 
+        response = get_response(message="Do you want to create that directory [yes, no] >> ")
 
         if not response:
             print("Setup can't continue if .local/bin doesn't exists")
@@ -212,14 +214,12 @@ def main():
 
         print("Creating .local/bin/folder")
         create_local_install_folder(LOCAL_BIN)
-    
-    
-    dependencies = get_dependencies() 
+
+    dependencies = get_dependencies()
     scripts_path = "./scripts"
-    print(check_dependencies(dependencies=dependencies)) 
+    print(check_dependencies(dependencies=dependencies))
     print(link_scripts(path=scripts_path))
 
-    
+
 if __name__ == "__main__":
     main()
-    

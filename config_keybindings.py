@@ -32,12 +32,12 @@ TERMINAL = "alacritty"
 
 # Qtile shutdown/restart keys
 SHUTDOWN_MODIFIER = [MOD, CONTROL]
-RESTART           = "r"
-SHUTDOWN          = "q"
+RESTART = "r"
+SHUTDOWN = "q"
 
 
 # Group movement keys:
-GROUPS_KEY     = CONTROL
+GROUPS_KEY = CONTROL
 SWAP_GROUP_KEY = SHIFT
 
 NEXT_GROUP = "period"
@@ -52,7 +52,7 @@ HARDWARE_KEYS = [
     ([], "XF86AudioLowerVolume", "pactl set-sink-volume @DEFAULT_SINK@ -5%"),
     ([], "XF86AudioRaiseVolume", "pactl set-sink-volume @DEFAULT_SINK@ +5%"),
     ([], "XF86AudioMute", "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
-     
+
     # Brightness
     ([], "XF86MonBrightnessUp", "brightnessctl set +10%"),
     ([], "XF86MonBrightnessDown", "brightnessctl set 10%-"),
@@ -62,7 +62,7 @@ HARDWARE_KEYS = [
 APPS = [
     ([MOD], "Return", TERMINAL),
     # (Modifier, Key, Command)
-    ([MOD],      "e", "thunar"),
+    ([MOD], "e", "thunar"),
     ([MOD, ALT], "d", "emacs"),
     ([MOD, ALT], "o", "env LIBGL_ALWAYS_SOFTWARE=1 obs"),
     ([MOD, ALT], "v", "gvim"),
@@ -74,16 +74,16 @@ APPS = [
     ([MOD, ALT], "z", "zoom"),
 
     # Media hotkeys
-    ([MOD],      "Up", "pulseaudio-ctl up 5"),
-    ([MOD],      "Down", "pulseaudio-ctl down 5"),
-    
+    ([MOD], "Up", "pulseaudio-ctl up 5"),
+    ([MOD], "Down", "pulseaudio-ctl down 5"),
+
     # Makes reference to play-pause script
     # You can find it in my scripts repository
-    ([ALTGR],    "space", "play-pause"),
-   
+    ([ALTGR], "space", "play-pause"),
+
     # Run "rofi-theme-selector" in terminal to select a theme
     ([MOD], "space", 'rofi -modi "drun,power-menu:rofi-power-menu,run,window,ssh" -show drun -show-icons'),
-    
+
     # Screenshots
     ([],         "Print", "xfce4-screenshooter"),
     # Full screen screenshot
@@ -91,7 +91,7 @@ APPS = [
 
     # Terminal apps
     ([MOD, ALT], "n", TERMINAL + " -e nvim"),
-    
+
 ]
 
 ##########################
@@ -109,7 +109,7 @@ CUSTOM_SPAWN_KEYS = [
 ]
 
 
-SPAWN_KEYS = HARDWARE_KEYS + APPS + CUSTOM_SPAWN_KEYS 
+SPAWN_KEYS = HARDWARE_KEYS + APPS + CUSTOM_SPAWN_KEYS
 
 SPAWN_CMD_KEYS = [
     # Takes full screenshot and creates a file on the screenshot folder

@@ -27,35 +27,34 @@ from layouts import Layouts
 from groups import CreateGroups
 from icons import group_icons
 
- 
+
 ###### MAIN ######
 if __name__ in ["config", "__main__"]:
     # Initializes objects
 
     # Initializes keybindings
-    obj_keys          = Keybindings()
+    obj_keys = Keybindings()
 
     # Mouse
-    obj_mouse         = Mouse()
-    obj_widgets       = MyWidgets()
-    obj_layouts       = Layouts()
-    obj_groups        = CreateGroups()
-    
+    obj_mouse = Mouse()
+    obj_widgets = MyWidgets()
+    obj_layouts = Layouts()
+    obj_groups = CreateGroups()
+
     # Initializes qtile variables
-    keys              = obj_keys.init_keys()
-    mouse             = obj_mouse.init_mouse()
-    layouts           = obj_layouts.init_layouts()
-    groups            = obj_groups.init_groups()
+    keys = obj_keys.init_keys()
+    mouse = obj_mouse.init_mouse()
+    layouts = obj_layouts.init_layouts()
+    groups = obj_groups.init_groups()
 
     # Append group keys for groups
-    keys              += obj_keys.init_keys_groups(group_icons)
+    keys += obj_keys.init_keys_groups(group_icons)
 
     ### DISPLAYS WIDGETS IN THE SCREEN ####
 
-    screens           = obj_widgets.init_screen()
+    screens = obj_widgets.init_screen()
     main_widgets_list = obj_widgets.init_widgets_list()
-    widgets_screen1   = obj_widgets.init_widgets_screen()
-
+    widgets_screen1 = obj_widgets.init_widgets_screen()
 
 
 dgroups_key_binder = None
@@ -93,10 +92,12 @@ respect_minimize_requests = True
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 wmname = "LG3D"
 
+
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser('~')
     subprocess.call([home + '/.local/bin/autostart'])
+
 
 @hook.subscribe.client_new
 def dialogs(window):
