@@ -1,5 +1,5 @@
 """
-MODIFY THIS FILE TO CREATE CUSTOM KEYBINDINGS
+MODIFY THIS FILE TO CREATE CUSTOM KEYBINDINGS.
 
 Keybindings are configured with tuples, inside Predifined lists Variables
 

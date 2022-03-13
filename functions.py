@@ -1,12 +1,14 @@
+"""Functions."""
 from libqtile.command import lazy
 # from libqtile.command_client import InteractiveCommandClient
 
 
 class Functions:
+    """Function class."""
 
-    # MOVE WINDOW IN GROUPS
     @staticmethod
     def window_to_prev_group():
+        """Window to previous group."""
         @lazy.function
         def __inner(qtile):
             i = qtile.groups.index(qtile.current_group)
@@ -19,6 +21,7 @@ class Functions:
 
     @staticmethod
     def window_to_next_group():
+        """Window to next group."""
         @lazy.function
         def __inner(qtile):
             i = qtile.groups.index(qtile.current_group)
@@ -29,9 +32,9 @@ class Functions:
 
         return __inner
 
-    # KILL ALL WINDOWS
     @staticmethod
     def kill_all_windows():
+        """Kill all windows."""
         @lazy.function
         def __inner(qtile):
             for window in qtile.current_group.windows:
@@ -41,6 +44,7 @@ class Functions:
 
     @staticmethod
     def kill_all_windows_minus_current():
+        """Kill all windows except current one."""
         @lazy.function
         def __inner(qtile):
             for window in qtile.current_group.windows:
@@ -51,34 +55,43 @@ class Functions:
 
 
 class PWA:
+    """PWA class."""
+
     def __init__(self):
+        """Init."""
         pass
 
     @staticmethod
     def notion():
+        """Notion."""
         return "brave --profile-directory=Default --app=https://notion.so"
 
     @staticmethod
     def music():
+        """Music."""
         return "brave --profile-directory=Default \
 --app=https://music.youtube.com/"
 
     @staticmethod
     def spotify():
+        """Spotify."""
         return "brave --profile-directory=Default \
 --app=https://open.spotify.com/"
 
     @staticmethod
     def youtube():
+        """Youtube."""
         return "brave --user-data-dir=Default --app=https://www.youtube.com"
 
     @staticmethod
     def calendar():
+        """Calendar."""
         return "brave --profile-directory=Default \
 --app=https://calendar.google.com/calendar/"
 
     @staticmethod
     def habitica():
+        """Habitica."""
         return "brave --profile-directory=Default --app=https://habitica.com/"
 
 

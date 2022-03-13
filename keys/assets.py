@@ -1,4 +1,5 @@
+"""Assets."""
+
+
 def create_keybinding():
-    """
-    Returns a key object based on a dictionary
-    """
+    """Return a key object based on a dictionary."""

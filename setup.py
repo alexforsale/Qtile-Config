@@ -1,5 +1,5 @@
 # /usr/bin/python
-
+"""Setup."""
 # Os level operations
 import os
 from getpass import getuser
@@ -14,6 +14,7 @@ INSTALL_PATH = ".local/bin"
 
 
 def print_program_welcome():
+    """Print welcome."""
     row = "=" * 55
 
     sep = "||"
@@ -40,12 +41,13 @@ def print_program_welcome():
 
 
 def print_current_dir():
+    """Print current directory."""
     print(f"Currently you are in {os.getcwd()} directory")
 
 
 def get_correct_os():
     """
-    Returns the Os name:
+    Return the Os name.
 
     get_os -> bool
 
@@ -60,7 +62,7 @@ def get_correct_os():
 
 def get_home_path():
     """
-    Get Linux home path
+    Get Linux home path.
 
     get_home_path -> str
     """
@@ -68,16 +70,12 @@ def get_home_path():
 
 
 def get_local_bin(home):
-    """
-    Returns the local bin path of the User
-    """
+    """Return the local bin path of the User."""
     return f"{home}/.local/bin"
 
 
 def check_local_folder_exists():
-    """
-    Check if .local/bin exists
-    """
+    """Check if .local/bin exists."""
     home = get_home_path()
 
     local = get_local_bin(home)
@@ -86,9 +84,7 @@ def check_local_folder_exists():
 
 
 def create_local_install_folder(local_bin):
-    """
-    Creates local bin folder
-    """
+    """Create local bin folder."""
     print("")
     print(f"Creating folder ar {local_bin}")
     print("")
@@ -102,9 +98,7 @@ def create_local_install_folder(local_bin):
 
 
 def get_response(message="yes/no"):
-    """
-    returns -> bool
-    """
+    """Return -> bool."""
     while True:
         response = input(message).lower()
 
@@ -121,7 +115,7 @@ LOCAL_BIN = get_local_bin(get_home_path())
 
 
 def link_scripts(path):
-
+    """Link scripts."""
     path = os.path.abspath(path)
     if not os.path.exists(path):
         raise OSError("Sorry that path doesn't exist")
@@ -149,11 +143,10 @@ def link_scripts(path):
 
 
 def get_dependencies(software_path="software.txt"):
-    """software_path -> path of software.txt
+    """software_path -> path of software.txt.
 
     returns list of dependencies
     """
-
     if not os.path.exists(software_path):
         print(f"The file {software_path} wasn't found. \
 Please clone again or provide one")
@@ -175,7 +168,7 @@ Please clone again or provide one")
 
 
 def check_dependencies(dependencies=None):
-    """dependencies ->  list
+    """Dependencies ->  list.
 
     returns -> str programs that aren't installed
     """
@@ -200,7 +193,7 @@ some scripts may not work\n"
 
 
 def main():
-
+    """Check dependencies and link scripts."""
     print_program_welcome()
 
     if not get_correct_os():

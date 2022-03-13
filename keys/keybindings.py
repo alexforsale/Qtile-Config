@@ -1,4 +1,4 @@
-
+"""Keybindings."""
 from libqtile.config import Click, Drag, Key
 from libqtile.lazy import lazy
 
@@ -9,6 +9,7 @@ from config_keybindings import *
 
 
 class Keybindings:
+    """Keybindings class."""
 
     keys = []
 
@@ -17,7 +18,7 @@ class Keybindings:
     cmd_keys = SPAWN_CMD_KEYS
 
     def create_layout_keys(self):
-        # BINDINGS FOR MONADTALL
+        """BINDINGS FOR MONADTALL."""
         modifier = [MOVEMENT_KEY]
 
         layout_left = Key(modifier, LEFT, lazy.layout.left())
@@ -34,6 +35,7 @@ class Keybindings:
                       toogle_layout]
 
     def create_swap_keys(self):
+        """Create swap keys."""
         modifier = [MOVEMENT_KEY, SWAP_KEY]
 
         left = Key(modifier, SWAP_LEFT, lazy.layout.swap_left())
@@ -46,7 +48,7 @@ class Keybindings:
         self.keys += [left, right, down, up, flip]
 
     def create_windows_keys(self):
-
+        """Create windows keys."""
         modifier = [MOVEMENT_KEY]
 
         grow = Key(modifier, GROW, lazy.layout.grow())
@@ -57,13 +59,14 @@ class Keybindings:
         self.keys += [grow, shrink, normalize, maximize]
 
     def create_shutdown_keys(self):
-
+        """Create shutdwon keys."""
         shutdown = Key(SHUTDOWN_MODIFIER, SHUTDOWN, lazy.shutdown())
         restart = Key(SHUTDOWN_MODIFIER, RESTART, lazy.restart())
 
         self.keys += [shutdown, restart]
 
     def create_kill_keys(self):
+        """Create kill keys."""
         modifier = [MOVEMENT_KEY, ALTGR]
 
         all_minus_current = Key(modifier, KILL_ALL_MINUS_CURRENT,
@@ -76,7 +79,7 @@ class Keybindings:
         self.keys += [all_minus_current, all_, current]
 
     def create_floating_keys(self):
-
+        """Create floating keys."""
         modifier = [MOVEMENT_KEY, FLOATING_KEY]
 
         floating = Key(modifier,
@@ -87,6 +90,7 @@ class Keybindings:
         self.keys += [floating, full]
 
     def create_groups_keys(self):
+        """Create groups keys."""
         modifier = [GROUPS_KEY]
         swap_modifier = [GROUPS_KEY, SWAP_GROUP_KEY]
         screen_modifier = [MOVEMENT_KEY]
@@ -111,7 +115,7 @@ class Keybindings:
                       move_prev_screen]
 
     def create_spawn_keys(self):
-
+        """Create spawn keys."""
         for spawn_key in self.spawn_keys:
 
             modifier, key, command = spawn_key
@@ -121,7 +125,7 @@ class Keybindings:
             self.keys.append(keybinding)
 
     def create_cmd_keys(self):
-
+        """Create command keys."""
         for cmd_key in self.cmd_keys:
 
             modifier, key, command = cmd_key
@@ -131,9 +135,7 @@ class Keybindings:
             self.keys.append(keybinding)
 
     def init_keys_groups(self, group_names):
-        """
-        Create bindings to move between groups
-        """
+        """Create bindings to move between groups."""
         group_keys = []
         for icon in group_names:
             index = (icon[0]).lower()
@@ -147,7 +149,7 @@ class Keybindings:
         return group_keys
 
     def init_keys(self):
-
+        """Init keys."""
         self.create_layout_keys()
         self.create_swap_keys()
         self.create_windows_keys()
@@ -163,10 +165,14 @@ class Keybindings:
 
 
 class Mouse:
+    """Mouse class."""
+
     def __init__(self, mod_key=MOD):
+        """Init."""
         self.mod = mod_key
 
     def init_mouse(self):
+        """Init mouse."""
         mouse = [
             Drag([self.mod], "Button1", lazy.window.set_position_floating(),
                  start=lazy.window.get_position()),

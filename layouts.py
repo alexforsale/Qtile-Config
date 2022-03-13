@@ -1,8 +1,12 @@
+"""Layouts."""
 from libqtile import layout
 
 
 class Layouts:
+    """Layouts class."""
+
     def __init__(self):
+        """Init function."""
         self.default = {
             "border_width": 2,
             "margin": 8,
@@ -10,9 +14,7 @@ class Layouts:
             "border_normal": "1D2330"}
 
     def init_layouts(self):
-        """
-        Returns the layouts variable
-        """
+        """Return the layouts variable."""
         layouts = [
             layout.Max(**self.default),
             layout.MonadTall(**self.default),

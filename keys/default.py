@@ -1,4 +1,4 @@
-"""Qtile default keybindings"""
+"""Qtile default keybindings."""
 
 # Keys
 MOD = "mod4"

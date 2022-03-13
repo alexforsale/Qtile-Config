@@ -1,3 +1,4 @@
+"""Widgets."""
 import os
 from libqtile import bar, widget
 from libqtile.lazy import lazy
@@ -15,7 +16,10 @@ from functions import PWA
 
 
 class MyWidgets:
+    """MyWidgets class."""
+
     def __init__(self):
+        """Init."""
         self.colors = [["#292d3e", "#292d3e"],  # panel background
                        # background for current screen tab
                        ["#434758", "#434758"],
@@ -38,9 +42,7 @@ class MyWidgets:
         self.termite = "termite"
 
     def init_widgets_list(self):
-        '''
-        Function that returns the desired widgets in form of list
-        '''
+        """Return the desired widgets in form of list."""
         widgets_list = [
             widget.Sep(
                 linewidth=0,
@@ -192,25 +194,23 @@ class MyWidgets:
         return widgets_list
 
     def init_widgets_screen(self):
-        '''
-        Function that returns the widgets in a list.
+        """Deturns the widgets in a list.
+
         It can be modified so it is useful if you  have a multimonitor system
-        '''
+        """
         widgets_screen = self.init_widgets_list()
         return widgets_screen
 
     def init_widgets_screen2(self):
-        '''
-        Function that returns the widgets in a list.
+        """Return the widgets in a list.
+
         It can be modified so it is useful if you  have a multimonitor system
-        '''
+        """
         widgets_screen2 = self.init_widgets_screen()
         return widgets_screen2
 
     def init_screen(self):
-        '''
-        Init the widgets in the screen
-        '''
+        """Init the widgets in the screen."""
         return [Screen(top=bar.Bar(widgets=self.init_widgets_screen(),
                                    opacity=1.0, size=20)),
                 Screen(top=bar.Bar(

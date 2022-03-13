@@ -1,3 +1,4 @@
+"""Config."""
 ###############################################
 # QTILE CONFIGURATION FILE OF DANIEL DIAZ #
 #
@@ -95,12 +96,14 @@ wmname = "LG3D"
 
 @hook.subscribe.startup_once
 def start_once():
+    """Start once."""
     home = os.path.expanduser('~')
     subprocess.call([home + '/.local/bin/autostart'])
 
 
 @hook.subscribe.client_new
 def dialogs(window):
+    """Window dialog."""
     if(window.window.get_wm_type() == 'dialog' or
        window.window.get_wm_transient_for()):
         window.floating = True

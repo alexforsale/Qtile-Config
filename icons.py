@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+"""Icons."""
 # -*- coding: utf-8 -*-
 
 
