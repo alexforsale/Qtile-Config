@@ -12,11 +12,10 @@ Command -> str() -> Ex: vscode
 (Modifier, Key, Command)
 """
 
-from libqtile.confreader import ConfigError
+# from libqtile.confreader import ConfigError
 
 # Import default mod keys
-from keys.default import *
-
+from keys.default import MOD, CONTROL, SHIFT, ALT, ALTGR
 from functions import PWA
 
 from os.path import expanduser

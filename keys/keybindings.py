@@ -3,9 +3,19 @@ from libqtile.config import Click, Drag, Key
 from libqtile.lazy import lazy
 
 # Import the function that move the window to the next and prev group
-from functions import Functions, PWA
+# from functions import Functions, PWA
 
-from config_keybindings import *
+from config_keybindings import SWAP_KEY, SWAP_FLIP, GROW, SHRINK
+from config.keybindings import SPAWN_KEYS, SPAWN_CMD_KEYS, MOVEMENT_KEY
+from config.keybindings import SWAP_LEFT, SWAP_RIGHT, SWAP_UP, SWAP_DOWN
+from config.keybinding import LEFT, RIGHT, DOWN, UP, TOOGLE_LAYOUT
+from config.keybinding import NORMALIZE, MAXIMIZE, SHUTDOWN, ALTGR
+from config.keybinding import KILL_ALL, KILL_ALL_MINUS_CURRENT
+from config.keybinding import SHUTDOWN_MODIFIER, RESTART, KILL_KEY
+from config.keybinding import KILL_CURRENT, SWAP_GROUP_KEY, FLOATING_KEY
+from config.keybinding import TOOGLE_FLOATING, TOOGLE_FULL, MOD
+from config.keybinding import PREV_GROUP, NEXT_GROUP, GROUPS_KEY
+from functions import Functions
 
 
 class Keybindings:
